@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['count_medicine_gui.py'],
-             pathex=['C:\\Users\\67572\\PycharmProjects\\统计程序'],
+             pathex=['D:\\代码\\medicine_number_count'],
              binaries=[],
              datas=[],
              hiddenimports=[],
