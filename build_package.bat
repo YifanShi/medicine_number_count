@@ -1,0 +1,1 @@
+pyinstaller -w --version-file file_version_info.txt -F count_medicine_gui.py -n 统计程序
