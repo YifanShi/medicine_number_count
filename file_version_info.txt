@@ -6,7 +6,7 @@ VSVersionInfo(
   ffi=FixedFileInfo(
     # filevers and prodvers should be always a tuple with four items: (1, 2, 3, 4)
     # Set not needed items to zero 0.
-    filevers=(2, 0, 1, 1),
+    filevers=(2, 0, 1, 2),
     # Contains a bitmask that specifies the valid bits 'flags'r
     mask=0x0,
     # Contains a bitmask that specifies the Boolean attributes of the file.
@@ -31,7 +31,7 @@ VSVersionInfo(
         [StringStruct(u'Comments', u'统计程序'),
         StringStruct(u'CompanyName', u'Baidu'),
         StringStruct(u'FileDescription', u'统计程序'),
-        StringStruct(u'ProductVersion', u'2.0.1.1'),
+        StringStruct(u'ProductVersion', u'2.0.1.2'),
         StringStruct(u'LegalCopyright', u'师一帆. All rights reserved.'),
         StringStruct(u'ProductName', u'统计程序')])
       ]), 

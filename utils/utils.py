@@ -192,5 +192,5 @@ def get_data_column(line1_info):
 
 def get_medicine_info(line2_info, medicine_column):
     medicine_info = line2_info[medicine_column]
-    medicine_name = medicine_info.split()[0]
+    medicine_name = medicine_info.split()[0].replace('/','_')
     return medicine_info, medicine_name
