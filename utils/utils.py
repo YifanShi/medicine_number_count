@@ -113,7 +113,7 @@ def write_to_excel(room_dict, medicine_name, medicine_info, count_time):
         excel_output_name = './表格导出/' + medicine_name + '-' + count_time + '-' + now + '.xls'
     # 保存表格
     workbook.save(excel_output_name)
-    message = '数据统计完成, 导出文件名称为：' + excel_output_name
+    message = '数据统计完成, 导出文件路径为：' + excel_output_name
     messagebox.showinfo(title='提示', message=message)
 
 
@@ -145,14 +145,6 @@ def count_room(room_dict, room, project, doctor_name, doctor_medicine_numbers, p
     return room_dict
 
 
-def _check_data_info(patient_column, medicine_column, medicine_numbers_column, project_column,
-                     room_column, doctor_column):
-    if not all([patient_column, medicine_column, medicine_numbers_column, project_column,
-                room_column, doctor_column]):
-        return False
-    return True
-
-
 def get_data_column(line1_info):
     line1_info_len = len(line1_info)
     patient_column = None
@@ -179,8 +171,8 @@ def get_data_column(line1_info):
             doctor_column = number
         elif line1_info[number] == '执行科室':
             room_column = number
-    if _check_data_info(patient_column, medicine_column, medicine_numbers_column,
-                        project_column, room_column, doctor_column):
+    if all([patient_column, medicine_column, medicine_numbers_column, project_column,
+                room_column, doctor_column]):
         return patient_column, medicine_column, medicine_numbers_column, \
                project_column, room_column, doctor_column
     else:
@@ -192,5 +184,5 @@ def get_data_column(line1_info):
 
 def get_medicine_info(line2_info, medicine_column):
     medicine_info = line2_info[medicine_column]
-    medicine_name = medicine_info.split()[0]
+    medicine_name = medicine_info.split()[0].replace('/','_')
     return medicine_info, medicine_name

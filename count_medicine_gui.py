@@ -46,12 +46,16 @@ def count_data():
     }
     '''
     room_dict = data.room_dict
-    utils.write_to_excel(room_dict, medicine_name, medicine_info, count_time)
+    try:
+        utils.write_to_excel(room_dict, medicine_name, medicine_info, count_time)
+    except Exception as e:
+        messagebox.showinfo(title='提示', message="错误：%s" % e)
+        raise Exception("错误：%s" % e)
 
 
 if __name__ == '__main__':
     root = tk.Tk()
-    version = 'v2.0.1.0'
+    version = 'v2.0.1.2'
     root.title("开单数量统计 %s" % version)
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
