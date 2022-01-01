@@ -6,9 +6,9 @@ import xlwt
 
 def _write_titile(excel, line, row, t1, t2, style):
     if row % 2:
-        excel.write(line, row, t1, style)
-    else:
         excel.write(line, row, t2, style)
+    else:
+        excel.write(line, row, t1, style)
 
 
 def write_to_excel(room_dict, medicine_name, medicine_info, count_time):
