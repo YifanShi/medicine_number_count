@@ -31,7 +31,7 @@ class Data:
     def __init__(self, file_path):
         # 获取 excel 数据
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r', encoding='GB18030') as f:
                 csv_data = csv.reader(f, delimiter='\t')
                 data = []
                 for line in csv_data:

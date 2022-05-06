@@ -55,7 +55,7 @@ def count_data():
 
 if __name__ == '__main__':
     root = tk.Tk()
-    version = 'v2.0.1.3'
+    version = 'v2.0.1.4'
     root.title("开单数量统计 %s" % version)
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
