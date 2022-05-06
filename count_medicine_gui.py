@@ -8,7 +8,7 @@ def choose_file():
     old_file_path_length = len(entry1.get())
     entry1.delete(0, old_file_path_length)
     file_path = tk.filedialog.askopenfilename()
-    # askopenfilename 1次上传1个；askopenfilenames1次上传多个
+    # askopenfilename 1次上传1个；askopenfilenames 1次上传多个
     entry1.insert(0, file_path)
 
 

@@ -108,9 +108,12 @@ def write_to_excel(room_dict, medicine_name, medicine_info, count_time):
         os.makedirs(output_dir)
     # 定义表单名称
     if count_time == "":
-        excel_output_name = './表格导出/' + medicine_name + '-' + now + '.xls'
+        excel_output_name = output_dir + '/' + medicine_name + '-' + now + '.xls'
     else:
-        excel_output_name = './表格导出/' + medicine_name + '-' + count_time + '-' + now + '.xls'
+        output_dir = output_dir + '/' + count_time
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        excel_output_name = output_dir + '/' + medicine_name + '-' + count_time + '-' + now + '.xls'
     # 保存表格
     workbook.save(excel_output_name)
     message = '数据统计完成, 导出文件路径为：' + excel_output_name
