@@ -180,7 +180,7 @@ def get_data_column(line1_info):
                project_column, room_column, doctor_column
     else:
         messagebox.showinfo(title='提示', message="错误：请确认选择的 excel 表格中需要统计的列名为:"
-                                                "姓名,项目名称,数量,开单科室，开单医生，执行科室")
+                                                "姓名，项目名称，数量，开单科室，开单医生，执行科室")
         raise Exception("错误：请确认选择的 excel 表格中需要统计的列名为:"
                         " 姓名, 项目名称, 数量, 开单科室, 开单医生, 执行科室")
 
