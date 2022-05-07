@@ -23,7 +23,8 @@ def count_data_from_excel(sheet1,
         room = sheet1[row][room_column]
         # 获取科室名称
         project = sheet1[row][project_column]
-        room_dict = utils.count_room(room_dict, room, project, doctor_name, doctor_medicine_numbers, patient_name)
+        room_dict = utils.count_room(
+            room_dict, room, project, doctor_name, doctor_medicine_numbers, patient_name)
     return room_dict
 
 
@@ -46,8 +47,10 @@ class Data:
         line1_info = data[0]
         line2_info = data[1]
         patient_column, medicine_column, medicine_numbers_column, \
-        project_column, room_column, doctor_column = utils.get_data_column(line1_info)
-        self.medicine_info, self.medicine_name = utils.get_medicine_info(line2_info, medicine_column)
+            project_column, room_column, doctor_column = utils.get_data_column(
+                line1_info)
+        self.medicine_info, self.medicine_name = utils.get_medicine_info(
+            line2_info, medicine_column)
         self.room_dict = count_data_from_excel(sheet1,
                                                rows_numbers,
                                                patient_column,

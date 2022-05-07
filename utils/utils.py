@@ -54,7 +54,7 @@ def write_to_excel(room_dict, medicine_name, medicine_info, count_time):
             medicine_total_numbers += room_dict[room_name][project_name]["数量"]
     # 生成表格抬头
     sheet_title = medicine_info + '(' + count_time + ')' + '-用量统计：' + \
-                  str(medicine_total_numbers)
+        str(medicine_total_numbers)
     worksheet.write_merge(line, line, 0, 9, sheet_title, style_titile)
     line += 2
 
@@ -63,10 +63,11 @@ def write_to_excel(room_dict, medicine_name, medicine_info, count_time):
             # 参数对应 行, 列, 值
             project_medicine_numbers = str(room_dict[room_name][project]["数量"])
             project_title = room_name + '-' + project + '-' + medicine_info \
-                            + '(' + count_time + ')' \
-                            + '-用量统计：' + project_medicine_numbers
+                + '(' + count_time + ')' \
+                + '-用量统计：' + project_medicine_numbers
             # 写入科室抬头
-            worksheet.write_merge(line, line, 0, 9, project_title, style_titile)
+            worksheet.write_merge(
+                line, line, 0, 9, project_title, style_titile)
             line += 1
             # 写入病人和数量抬头
             for row in range(0, 10):
@@ -113,7 +114,8 @@ def write_to_excel(room_dict, medicine_name, medicine_info, count_time):
         output_dir = output_dir + '/' + count_time
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
-        excel_output_name = output_dir + '/' + medicine_name + '-' + count_time + '-' + now + '.xls'
+        excel_output_name = output_dir + '/' + medicine_name + \
+            '-' + count_time + '-' + now + '.xls'
     # 保存表格
     workbook.save(excel_output_name)
     message = '数据统计完成, 导出文件路径为：' + excel_output_name
@@ -175,17 +177,17 @@ def get_data_column(line1_info):
         elif line1_info[number] == '执行科室':
             room_column = number
     if all([patient_column, medicine_column, medicine_numbers_column, project_column,
-                room_column, doctor_column]):
+            room_column, doctor_column]):
         return patient_column, medicine_column, medicine_numbers_column, \
-               project_column, room_column, doctor_column
+            project_column, room_column, doctor_column
     else:
         messagebox.showinfo(title='提示', message="错误：请确认选择的 excel 表格中需要统计的列名为:"
-                                                "姓名,项目名称,数量,开单科室，开单医生，执行科室")
+                                                "姓名，项目名称，数量，开单科室，开单医生，执行科室")
         raise Exception("错误：请确认选择的 excel 表格中需要统计的列名为:"
                         " 姓名, 项目名称, 数量, 开单科室, 开单医生, 执行科室")
 
 
 def get_medicine_info(line2_info, medicine_column):
     medicine_info = line2_info[medicine_column]
-    medicine_name = medicine_info.split()[0].replace('/','_')
+    medicine_name = medicine_info.split()[0].replace('/', '_')
     return medicine_info, medicine_name

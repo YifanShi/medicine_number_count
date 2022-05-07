@@ -26,7 +26,8 @@ def count_data():
             import driver.csv as drive
             data = drive.Data(file_path)
         except Exception:
-            messagebox.showinfo(title='提示', message="错误：输入的 excel 文件不存在，或文件格式不为 xls、xlsx 或 csv")
+            messagebox.showinfo(
+                title='提示', message="错误：输入的 excel 文件不存在，或文件格式不为 xls、xlsx 或 csv")
             raise Exception("错误：输入的 excel 文件不存在，或文件格式不为 xls、xlsx 或 csv")
     medicine_info = data.medicine_info
     medicine_name = data.medicine_name
@@ -47,7 +48,8 @@ def count_data():
     '''
     room_dict = data.room_dict
     try:
-        utils.write_to_excel(room_dict, medicine_name, medicine_info, count_time)
+        utils.write_to_excel(room_dict, medicine_name,
+                             medicine_info, count_time)
     except Exception as e:
         messagebox.showinfo(title='提示', message="错误：%s" % e)
         raise Exception("错误：%s" % e)
